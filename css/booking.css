@@ -1,0 +1,15 @@
+body{
+    background: #3e69d6;
+}
+.pemesanan{
+    text-align: center;
+    box-shadow: 0 0 10px white;
+}
+.pemesanan h4{
+    color: white;
+}
+.kotak{
+    width: 350px;
+    margin: 80px auto;
+    padding: 30px 20px;
+}

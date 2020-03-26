@@ -1,3 +1,9 @@
+   <?
+session_start();
+if(!isset($_GET['username'])){
+  header("Location: ./index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,17 +24,17 @@
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="layanan.php">Layanan</a>
+                <a class="nav-link" href="#">Layanan</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="booking.php">Booking</a>
+                <a class="nav-link" href="#">Booking</a>
             </li>
         
         </ul>
 
         <ul class="navbar-nav" >
             <li class="nav-item">
-            <a class="nav-link" href="login.php">login</a>
+            <a class="nav-link" href="#">login</a>
             </li>
         </ul>
     </div>

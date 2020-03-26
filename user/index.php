@@ -1,3 +1,9 @@
+<?
+session_start();
+if(!isset($_GET['username'])){
+  header("Location: ./index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +34,7 @@
 
         <ul class="navbar-nav" >
             <li class="nav-item">
-            <a class="nav-link" href="login.php">login</a>
+            <a class="nav-link" href="../index.php">logout</a>
             </li>
         </ul>
     </div>
@@ -42,13 +48,13 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-            <img src="./gambar/tampilan1.jpg" class=" w-100" alt="...">
+            <img src="../gambar/tampilan1.jpg" class=" w-100" alt="...">
             </div>
             <div class="carousel-item">
-            <img src="./gambar/tampilan2.jpg" class=" w-100" alt="...">
+            <img src="../gambar/tampilan2.jpg" class=" w-100" alt="...">
             </div>
             <div class="carousel-item">
-            <img src="./gambar/tampilan3.jpg" class=" w-100" alt="...">
+            <img src="../gambar/tampilan3.jpg" class=" w-100" alt="...">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
