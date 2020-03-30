@@ -1,3 +1,9 @@
+<?php
+
+$db=mysqli_connect("localhost","root","","mysite");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +12,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style type="text/css" >
-    @import "./css/booking.css";
+    @import "../css/booking.css";
     </style>
 </head>
 <body>
@@ -41,35 +47,67 @@
             <div class="pemesanan">
                 <h4>PEMESANAN TIKET</h4>
             </div>
-                <form>
+            <?php include "./koneksi.php";
+                $query="SELECT * FROM tiket";
+                $result=mysqli_query($connect,$query);
+                $num=mysqli_num_rows($result);
+            ?>
+                <form action="tiket.php" method="post">
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
-                            <img src="./assets/icons/geo-alt.svg" alt="" width="32" height="32" title="Stasiun Asal">
-                            <select class="custom-select" id="validationDefault04" required>
-                                <option selected disabled value="">Stasiun Asal</option>
-                                <option>...</option>
+                            <img src="../assets/icons/geo-alt.svg" alt="" width="32" height="32" title="Stasiun Asal">
+                            <select class="custom-select" id="validationDefault04"  required>
+                                <option selected disabled value="<?=isset($_POST['stasiun_asal']) ? $_POST['stasiun_asal'] : ''?>">Stasiun Asal</option>
+                                <option>malang baru</option>
+                                <option>malang kota lama</option>
+                                <option>mojokerto</option>
+                                <option>bojonegoro</option>
+                                <option>sidoarjo</option>
                             </select>
                             
-                            <img src="./assets/icons/geo-alt.svg" alt="" width="32" height="32" title="Stasiun Tujuan">
-                            <select class="custom-select" id="validationDefault04" required>
-                                <option selected disabled value="">Stasiun Tujuan</option>
-                                <option>...</option>
+                            <img src="../assets/icons/geo-alt.svg" alt="" width="32" height="32" title="Stasiun Tujuan">
+                            <select class="custom-select" id="validationDefault04"  required>
+                                <option selected disabled value="<?=isset($_POST['stasiun_tujuan']) ? $_POST['stasiun_tujuan'] : ''?>">Stasiun Tujuan</option>
+                                <option>malang baru</option>
+                                <option>malang kota lama</option>
+                                <option>mojokerto</option>
+                                <option>bojonegoro</option>
+                                <option>sidoarjo</option>
                             </select>
 
-                            <img src="./assets/icons/Calendar.svg" alt="" width="32" height="32" title="Tanggal Keberangkatan">
-                            <input type="date" class="form-control" id="validationDefaultUsername" placeholder="Tanggal Berangkat" aria-describedby="inputGroupPrepend2" required>
+                            <img src="../assets/icons/Calendar.svg" alt="" width="32" height="32" title="Tanggal Keberangkatan">
+                            <input type="date" class="form-control" id="validationDefaultUsername" placeholder="Tanggal Berangkat" aria-describedby="inputGroupPrepend2" value="<?=isset($_POST['tanggal_keberangkatan']) ? $_POST['tanggal_keberangkatan'] : ''?>" required>
                             
-                            <img src="./assets/icons/people-fill.svg" alt="" width="32" height="32" title="Penumpang">
-                            <select class="custom-select" id="validationDefault04" required>
-                                <option selected disabled value="">Penumpang</option>
+                            <img src="../assets/icons/people-fill.svg" alt="" width="32" height="32" title="Penumpang">
+                            <select class="custom-select" id="validationDefault04"  required>
+                                <option selected disabled value="<?=isset($_POST['penumpang']) ? $_POST['penumpang'] : ''?>">Penumpang</option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
                                 <option>4</option>
                             </select>
+
+                            <img src="../assets/icons/terminal.svg" alt="" width="32" height="32" title="kereta">
+                            <select class="custom-select" id="validationDefault04" required>
+                                <option selected disabled value="<?=isset($_POST['kereta']) ? $_POST['kereta'] : ''?>" >Kereta</option>
+                                <option>mutiara sentosa</option>
+                                <option>majapahit</option>
+                                <option>kertajaya</option>
+                                <option>jayabaya</option>
+                            </select>
+
+                            <img src="../assets/icons/clock.svg" alt="" width="32" height="32" title="jam">
+                            <select class="custom-select" id="validationDefault04"  required>
+                                <option selected disabled value="<?=isset($_POST['jam']) ? $_POST['jam'] : ''?>">Jam</option>
+                                <option>04:00</option>
+                                <option>09:00</option>
+                                <option>12:30</option>
+                                <option>19:42</option>
+                            </select>
+
                         </div>
                     </div>
-                <button class="btn btn-primary" type="submit">Submit form</button>
+                    <input type="submit" class="btn btn-primary" value="submit" name="submit" >
             </form>
         </div>
 

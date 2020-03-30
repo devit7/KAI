@@ -21,7 +21,7 @@
                 <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="layanan.php">Layanan</a>
+                <a class="nav-link" href="tiket.php">Tiket</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="booking.php">Booking</a>
@@ -37,6 +37,12 @@
     </div>
     </nav>
 
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Hai Login Dulu Ya!!</h1>
+        </div>
+    </div>
+
         <div class="kotak">
             <div class="pemesanan">
                 <h4>PEMESANAN TIKET</h4>
@@ -44,6 +50,7 @@
                 <form action="login.php">
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
+                        
                             <img src="./assets/icons/geo-alt.svg" alt="" width="32" height="32" title="Stasiun Asal">
                             <select class="custom-select" id="validationDefault04" required>
                                 <option selected disabled value="">Stasiun Asal</option>
