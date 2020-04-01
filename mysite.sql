@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2020 at 07:40 AM
+-- Generation Time: Apr 01, 2020 at 04:39 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -21,6 +21,22 @@ SET time_zone = "+00:00";
 --
 -- Database: `mysite`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tiket`
+--
+
+CREATE TABLE `tiket` (
+  `id_tiket` int(100) NOT NULL,
+  `stasiun_asal` varchar(100) NOT NULL,
+  `stasiun_tujuan` varchar(100) NOT NULL,
+  `tanggal_keberangkatan` date NOT NULL,
+  `penumpang` int(4) NOT NULL,
+  `kereta` varchar(100) NOT NULL,
+  `jam` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -49,6 +65,12 @@ INSERT INTO `user` (`id`, `nama`, `username`, `password`, `alamat`, `no_hp`) VAL
 --
 
 --
+-- Indexes for table `tiket`
+--
+ALTER TABLE `tiket`
+  ADD PRIMARY KEY (`id_tiket`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -59,10 +81,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `tiket`
+--
+ALTER TABLE `tiket`
+  MODIFY `id_tiket` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
