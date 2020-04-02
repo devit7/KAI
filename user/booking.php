@@ -3,7 +3,12 @@
 $db=mysqli_connect("localhost","root","","mysite");
 
 ?>
-
+<?php
+include "./koneksi.php";
+$query="SELECT * FROM tiket";
+$result = mysqli_query($connect,$query);
+$num=mysqli_num_rows($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,8 +31,15 @@ $db=mysqli_connect("localhost","root","","mysite");
             <li class="nav-item ">
                 <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="tiket.php">Tiket</a>
+            <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Tiket
+                    </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Aktif</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="tiket.php">Menunggu</a>
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="booking.php">Booking</a>
@@ -52,20 +64,16 @@ $db=mysqli_connect("localhost","root","","mysite");
                             <img src="../assets/icons/geo-alt.svg" alt="" width="32" height="32" title="Stasiun Asal">
                             <select class="custom-select" id="validationDefault04" name="stasiun_asal" value="<?=isset($_POST['stasiun_asal']) ? $_POST['stasiun_asal'] : ''?>"  required>
                                 <option selected disabled >Stasiun Asal</option>
-                                <option>malang baru</option>
                                 <option>malang kota lama</option>
                                 <option>mojokerto</option>
-                                <option>bojonegoro</option>
                                 <option>sidoarjo</option>
                             </select>
                             
                             <img src="../assets/icons/geo-alt.svg" alt="" width="32" height="32" title="Stasiun Tujuan">
                             <select class="custom-select" id="validationDefault04" name="stasiun_tujuan" value="<?=isset($_POST['stasiun_tujuan']) ? $_POST['stasiun_tujuan'] : ''?>"  required>
                                 <option selected disabled >Stasiun Tujuan</option>
-                                <option>malang baru</option>
                                 <option>malang kota lama</option>
                                 <option>mojokerto</option>
-                                <option>bojonegoro</option>
                                 <option>sidoarjo</option>
                             </select>
 
@@ -93,10 +101,10 @@ $db=mysqli_connect("localhost","root","","mysite");
                             <img src="../assets/icons/clock.svg" alt="" width="32" height="32" title="jam">
                             <select class="custom-select" id="validationDefault04" name="jam" value="<?=isset($_POST['jam']) ? $_POST['jam'] : ''?>" required>
                                 <option selected disabled >Jam</option>
-                                <option>04 00</option>
-                                <option>09 00</option>
-                                <option>12 30</option>
-                                <option>19 42</option>
+                                <option>04:00</option>
+                                <option>09:00</option>
+                                <option>12:30</option>
+                                <option>19:42</option>
                             </select>
 
                         </div>

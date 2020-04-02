@@ -36,13 +36,6 @@
         </ul>
     </div>
     </nav>
-
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Hai Login Dulu Ya!!</h1>
-        </div>
-    </div>
-
         <div class="kotak">
             <div class="pemesanan">
                 <h4>PEMESANAN TIKET</h4>

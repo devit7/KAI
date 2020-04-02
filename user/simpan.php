@@ -8,13 +8,14 @@
     $kereta = $_POST['kereta'];
     $jam = $_POST['jam'];
     
-    $sql = mysqli_connect('localhost', 'root', '', 'mysite');
-    $query = "INSERT INTO tiket( stasiun_asal, stasiun_tujuan, tanggal_keberangkatan, penumpang, kereta, jam) VALUES ('$stasiun_asal', '$stasiun_tujuan', '$tanggal_keberangkatan','$penumpang','$kereta''$jam')";
+    $query = "INSERT INTO tiket ( stasiun_asal, stasiun_tujuan, tanggal_keberangkatan, penumpang, kereta, jam) VALUES ('$stasiun_asal', '$stasiun_tujuan', '$tanggal_keberangkatan','$penumpang','$kereta','$jam')";
     
-    if (mysqli_query($sql,$query) ) {
-      echo'berhasil tersimpan';
+    $sql = mysqli_connect('localhost', 'root', '', 'mysite');
+
+    if ( mysqli_query($sql, $query) ) {
+      echo "Berhasil tambah data";
       header("Location: tiket.php");
-      }else{
-        echo 'gagal tersimpan'.mysqli_connect_error();
-      }
+    }else{
+      echo "gagal tambah data".$query."<br>".mysqli_error($connect);
+    }
 ?>

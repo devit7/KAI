@@ -3,6 +3,12 @@
 $db=mysqli_connect("localhost","root","","mysite");
 
 ?>
+<?php
+include "./koneksi.php";
+$query="SELECT * FROM tiket";
+$result = mysqli_query($connect,$query);
+$num=mysqli_num_rows($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +28,15 @@ $db=mysqli_connect("localhost","root","","mysite");
             <li class="nav-item ">
                 <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="tiket.php">Tiket</a>
+            <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Tiket
+                    </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Aktif</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="tiket.php">Menunggu</a>
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="booking.php">Booking</a>
@@ -51,7 +64,7 @@ $db=mysqli_connect("localhost","root","","mysite");
                                     <th scope="col">PENUMPANG</th>
                                     <th scope="col">KERETA</th>
                                     <th scope="col">JAM BERANGKAT</th>
-                                    <th scope="col">AKSI</th>
+                                    <th scope="col" rowspan="2">AKSI</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -68,6 +81,7 @@ $db=mysqli_connect("localhost","root","","mysite");
                                         echo "<td>".$data['kereta']."</td>";
                                         echo "<td>".$data['jam']."</td>";
                                         echo "<td><a href='delete.php?id_tiket=".$data['id_tiket']."' onclick='return confirm(\"apakah anda yakin ingin menghapus data?\")'><button type='button'>Delete</submit></a></td>";
+                                        echo "<td><a href='bayar.php?id_tiket=".$data['id_tiket']."' onclick='return confirm(\"yakin anda ingin membayar ?\")'><button type='button'>Bayar</submit></a></td>";
                                         echo "</tr>";
                                     }
                                     ?>
