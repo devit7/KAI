@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2020 at 05:16 AM
+-- Generation Time: Apr 06, 2020 at 10:25 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -21,6 +21,17 @@ SET time_zone = "+00:00";
 --
 -- Database: `mysite`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kursi`
+--
+
+CREATE TABLE `kursi` (
+  `id_kursi` int(11) NOT NULL,
+  `nomor_kursi` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -50,19 +61,27 @@ CREATE TABLE `user` (
   `username` varchar(8) NOT NULL,
   `password` varchar(8) NOT NULL,
   `alamat` varchar(50) NOT NULL,
-  `no_hp` varchar(50) NOT NULL
+  `no_hp` varchar(50) NOT NULL,
+  `level` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `nama`, `username`, `password`, `alamat`, `no_hp`) VALUES
-(8, 'devit', 'devit123', '29juli04', 'mojokerto', '085735557457');
+INSERT INTO `user` (`id`, `nama`, `username`, `password`, `alamat`, `no_hp`, `level`) VALUES
+(8, 'devit', 'devit123', '29juli04', 'mojokerto', '085735557457', 'pemesan'),
+(10, 'emmbuh', 'Mpiiee', '29juli20', 'Mojokerto', '082253778209', 'pemesan');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `kursi`
+--
+ALTER TABLE `kursi`
+  ADD PRIMARY KEY (`id_kursi`);
 
 --
 -- Indexes for table `tiket`
@@ -81,16 +100,22 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `kursi`
+--
+ALTER TABLE `kursi`
+  MODIFY `id_kursi` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tiket`
 --
 ALTER TABLE `tiket`
-  MODIFY `id_tiket` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_tiket` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

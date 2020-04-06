@@ -1,3 +1,4 @@
+
 <?php
 
 if (isset($_POST['submit'])) {
@@ -9,7 +10,7 @@ if (isset($_POST['submit'])) {
   $no_hp=$_POST['no_hp'];
   
   $sql = mysqli_connect('localhost', 'root', '', 'mysite');
-  $query = "INSERT INTO user (nama, username, password, alamat, no_hp) VALUES ('$nama', '$username', '$password','$alamat','$no_hp')";
+  $query = "INSERT INTO user (nama, username, password, alamat, no_hp, level) VALUES ('$nama', '$username', '$password','$alamat','$no_hp','pemesan')";
   
   if ( mysqli_query($sql, $query) ) {
       echo 'berhasil tersimpan';
@@ -26,6 +27,7 @@ require('./user/koneksi.php');
     if (isset($_POST["login_btn"])){
         $username = $_POST['username'];
         $password = $_POST['password'];
+        $sql_login  = mysqli_query($koneksi, "SELECT * FROM akun WHERE username = '$username' AND password = '$password'");
         $result = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$username'");
         $hasil = mysqli_fetch_array($result);
         if($username == "admin_devit" && $password="ganteng"){
@@ -38,6 +40,7 @@ require('./user/koneksi.php');
                 header("Location: login.php");
             }else{
                 $_SESSION['username'] = $hasil['username'];
+                $_SESSION['level'] = "pemesan";
                 header ("Location: ./user/index.php");
                 exit;
             }

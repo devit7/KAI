@@ -9,7 +9,7 @@ if(!isset($_GET['username'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>KAI</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
@@ -23,18 +23,24 @@ if(!isset($_GET['username'])){
             <li class="nav-item ">
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Layanan</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Daftar Booking
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="menunggu.php">Belum Bayar</a>
+                    <a class="dropdown-item" href="aktif.php">Sudah bayar</a>
+                </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Booking</a>
+                <a class="nav-link" href="info_user.php">Info user</a>
             </li>
         
         </ul>
 
         <ul class="navbar-nav" >
             <li class="nav-item">
-            <a class="nav-link" href="#">login</a>
+            <a class="nav-link" href="../index.php">logout</a>
             </li>
         </ul>
     </div>
@@ -48,13 +54,13 @@ if(!isset($_GET['username'])){
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-            <img src="./gambar/tampilan1.jpg" class=" w-100" alt="...">
+            <img src="../gambar/tampilan1.jpg" class=" w-100" alt="...">
             </div>
             <div class="carousel-item">
-            <img src="./gambar/tampilan2.jpg" class=" w-100" alt="...">
+            <img src="../gambar/tampilan2.jpg" class=" w-100" alt="...">
             </div>
             <div class="carousel-item">
-            <img src="./gambar/tampilan3.jpg" class=" w-100" alt="...">
+            <img src="../gambar/tampilan3.jpg" class=" w-100" alt="...">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

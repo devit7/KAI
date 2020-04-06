@@ -3,6 +3,15 @@
 $db=mysqli_connect("localhost","root","","mysite");
 
 ?>
+<?php 
+	session_start();
+ 
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:index.php?pesan=gagal");
+	}
+ 
+	?>
 <?php
 include "./koneksi.php";
 $query="SELECT * FROM tiket";
@@ -51,6 +60,15 @@ $num=mysqli_num_rows($result);
             <a class="nav-link" href="../index.php">logout</a>
             </li>
         </ul>
+        <div style="margin-left:auto;color:white;">
+                                    <?php
+                                    include "./koneksi.php";
+                                    echo $_SESSION['username'];
+                                    ?>
+        <a href="nav-link" href="#">
+        
+        <img style="height: 1cm;width: 1cm;" src="../gambar/fotokosong.png" alt="" srcset="" hspace="5">
+        <a>
     </div>
     </nav>
 

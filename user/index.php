@@ -1,9 +1,18 @@
 <?
 session_start();
-if(!isset($_GET['id_tiket'])){
+if(!isset($_GET['id'])){
   header("Location: ./index.php");
 }
 ?>
+<?php 
+	session_start();
+ 
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:index.php?pesan=gagal");
+	}
+ 
+	?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,12 +47,21 @@ if(!isset($_GET['id_tiket'])){
             </li>
         
         </ul>
-
         <ul class="navbar-nav" >
             <li class="nav-item">
             <a class="nav-link" href="../index.php">logout</a>
             </li>
         </ul>
+        <div style="margin-left:auto;color:white;">
+                                    <?php
+                                    include "./koneksi.php";
+                                    echo $_SESSION['username'];
+                                    ?>
+        <a href="nav-link" href="#">
+        
+        <img style="height: 1cm;width: 1cm;" src="../gambar/fotokosong.png" alt="" srcset="" hspace="5">
+        <a>
+        </div>
     </div>
     </nav>
 
