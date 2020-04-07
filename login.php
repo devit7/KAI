@@ -27,7 +27,7 @@ require('./user/koneksi.php');
     if (isset($_POST["login_btn"])){
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $sql_login  = mysqli_query($koneksi, "SELECT * FROM akun WHERE username = '$username' AND password = '$password'");
+        $sql_login  = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$username' AND password = '$password'");
         $result = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$username'");
         $hasil = mysqli_fetch_array($result);
         if($username == "admin_devit" && $password="ganteng"){

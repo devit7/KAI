@@ -65,10 +65,26 @@ $num=mysqli_num_rows($result);
                                     include "./koneksi.php";
                                     echo $_SESSION['username'];
                                     ?>
-        <a href="nav-link" href="#">
-        
-        <img style="height: 1cm;width: 1cm;" src="../gambar/fotokosong.png" alt="" srcset="" hspace="5">
-        <a>
+        </div>
+        <div class="dropleft" >
+                <?php
+                    $user=$_SESSION['username'];
+                    $query = $connect->query("SELECT * FROM user WHERE username LIKE '%$user%'");
+                    $data = mysqli_fetch_assoc($query);
+                    if($data['gambar'] != ""){
+                        echo "<img style='height: 1cm;width: 1cm;' src='../uploads/".$data['gambar']."' alt='' class=' dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' id='dropdownMenu2' srcset='' name='gambar' hspace='5'>";    
+                    }else{
+                        echo '<img style="height: 1cm;width: 1cm;" src="../gambar/fotokosong.png" alt="" class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenu2" srcset="" type="file" name="gambar" hspace="5">';
+                    }
+                ?>
+                <form class="dropdown-menu p-4" action="aksi.php" method="POST" enctype="multipart/form-data" style="margin-top:45px;">
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail2">Masukan Gambar Profile</label>
+                        <input type="file" name="gambare" value="<?=isset($_POST['gambare']) ? $_POST['gambare'] : ''?>" >
+                    </div>
+                    <button type="submit" name="kirim" class="btn btn-primary">kirim</button>
+                </form>
+        </div>
     </div>
     </nav>
 
