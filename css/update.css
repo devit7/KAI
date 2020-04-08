@@ -1,0 +1,10 @@
+.kotak{
+    width: 350px;
+    margin: 80px auto;
+    padding: 30px 20px;
+    background: #bbbbc4;
+}
+body{
+    background-image: url(../gambar/kereta-api2.jpg);
+    font-family: arial;
+}

@@ -47,30 +47,30 @@
                                 <table class="table table-striped" width="" cellpadding="" >
                                 <thead>
                                     <tr>
-                                    <th scope="col">ID</th>
+                                    <th scope="col">NO</th>
                                     <th scope="col">NAMA</th>
                                     <th scope="col">USERNAME</th>
                                     <th scope="col">PASSWORD</th>
                                     <th scope="col">ALAMAT</th>
-                                    <th scope="col">NONOR HP</th>
+                                    <th scope="col">NOMOR HP</th>
                                     <th scope="col" colspan="2">AKSI</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     include "./koneksi.php";
-                                    $query = "SELECT * FROM user";
-                                    $sql = mysqli_query($connect,$query);
-                                    while($data = mysqli_fetch_array($sql)){
+                                    $no = 1;
+                                    $data = mysqli_query($connect,"SELECT * from user");
+                                    while($d = mysqli_fetch_array($data)){
                                         echo "<tr>";
-                                        echo "<td>".$data['id']."</td>";
-                                        echo "<td>".$data['nama']."</td>";
-                                        echo "<td>".$data['username']."</td>";
-                                        echo "<td>".$data['password']."</td>";
-                                        echo "<td>".$data['alamat']."</td>";
-                                        echo "<td>".$data['no_hp']."</td>";
-                                        echo "<td><a href='update.php?id_tiket=".$data['id']."'><img src='../gambar/update.webp' alt='' width='32' height='32' title='UPDATE'></a></td>";
-                                        echo "<td><a href='delete.php?id_tiket=".$data['id']."' onclick='return confirm(\"apakah anda yakin ingin menghapus data?\")'> <img src='../gambar/delete.webp' alt='' width='32' height='32' title='DELETE'> </a></td>";
+                                        echo "<td>".$no++."</td>";
+                                        echo "<td>".$d['nama']."</td>";
+                                        echo "<td>".$d['username']."</td>";
+                                        echo "<td>".$d['password']."</td>";
+                                        echo "<td>".$d['alamat']."</td>";
+                                        echo "<td>".$d['no_hp']."</td>";
+                                        echo "<td><a href='update.php?id=".$d['id']."'><img src='../gambar/update.webp' alt='' width='32' height='32' title='UPDATE'></a></td>";
+                                        echo "<td><a href='delete.php?id=".$d['id']."' onclick='return confirm(\"apakah anda yakin ingin menghapus data?\")'> <img src='../gambar/delete.webp' alt='' width='32' height='32' title='DELETE'> </a></td>";
                                         echo "</tr>";
                                     }
                                     ?>
